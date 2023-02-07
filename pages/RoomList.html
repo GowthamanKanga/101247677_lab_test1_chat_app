@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chat Room Selection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .form-container {
+        width: 500px;
+        margin: 100px auto;
+        background-color: #f7f7f7;
+        padding: 30px;
+        border-radius: 10px;
+      }
+    </style>
+    <script>
+      function handleFormSubmit(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        localStorage.setItem("username", username);
+        window.location.href = "ChatRoom.html";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2 class="text-center">Chat Room Selection</h2>
+      <form action="ChatRoom.html" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+          <label for="chatroom">Chat Room</label>
+          <select class="form-control" id="chatroom">
+            <option value="news">News</option>
+            <option value="covid19">Covid-19</option>
+            <option value="nodeJS">NodeJS</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enter Chat Room</button>
+      </form>
+    </div>
+  </body>
+</html>
